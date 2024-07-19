@@ -27,6 +27,9 @@ jobs:
           go-version: stable
       # More assembly might be required: Docker logins, GPG, etc.
       # It all depends on your needs.
+      - name: Anchore SBOM Action
+        uses: anchore/sbom-action@v0.17.0
+
       - name: Run GoReleaser
         uses: goreleaser/goreleaser-action@v6
         with:
