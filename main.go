@@ -6,6 +6,18 @@ import (
 )
 
 func main() {
+	people, slicesPerPerson, slicesPerPizza := input()
+
+	totalPizzasNeeded := calculatePizzaNeeded(slicesPerPerson, people, slicesPerPizza)
+
+	output(totalPizzasNeeded)
+}
+
+func output(totalPizzasNeeded float64) (int, error) {
+	return fmt.Print("You need to order ", totalPizzasNeeded, " Pizzas\n")
+}
+
+func input() (int, int, int) {
 	var people int
 	var slicesPerPerson int
 	var slicesPerPizza int
@@ -23,12 +35,14 @@ func main() {
 	fmt.Print("Number of people: ", people, "\n")
 	fmt.Print("Number of slices per person: ", slicesPerPerson, "\n")
 	fmt.Print("Number of slices per pizza: ", slicesPerPizza, "\n")
+	return people, slicesPerPerson, slicesPerPizza
+}
 
+func calculatePizzaNeeded(slicesPerPerson int, people int, slicesPerPizza int) float64 {
 	var totalSlicesNeeded int
 	totalSlicesNeeded = slicesPerPerson * people
 
 	var totalPizzasNeeded float64
 	totalPizzasNeeded = math.Ceil(float64(totalSlicesNeeded) / float64(slicesPerPizza))
-
-	fmt.Print("You need to order ", totalPizzasNeeded, " Pizzas\n")
+	return totalPizzasNeeded
 }
