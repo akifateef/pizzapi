@@ -6,29 +6,29 @@ import (
 )
 
 func main() {
-	var numberOfPeople int
-	var numberOfSlicesPerPizza int
-	var numberOfSlicesPerPerson int
+	var people int
+	var slicesPerPerson int
+	var slicesPerPizza int
 	fmt.Print("Let's calculate how much Pizza you should get :)\n")
 
 	fmt.Print("How many guests are there? ")
-	fmt.Scan(&numberOfPeople)
+	fmt.Scan(&people)
 
 	fmt.Print("How many slices each person would eat? ")
-	fmt.Scan(&numberOfSlicesPerPerson)
+	fmt.Scan(&slicesPerPerson)
 
 	fmt.Print("How many slices each pizza will have? ")
-	fmt.Scan(&numberOfSlicesPerPizza)
+	fmt.Scan(&slicesPerPizza)
 
-	fmt.Print("number_of_people: ", numberOfPeople, "\n")
-	fmt.Print("number_of_slices_per_person: ", numberOfSlicesPerPerson, "\n")
-	fmt.Print("number_of_slices_per_pizza: ", numberOfSlicesPerPizza, "\n")
+	fmt.Print("Number of people: ", people, "\n")
+	fmt.Print("Number of slices per person: ", slicesPerPerson, "\n")
+	fmt.Print("Number of slices per pizza: ", slicesPerPizza, "\n")
 
-	var totalNumberOfSlicesNeeded int
-	totalNumberOfSlicesNeeded = numberOfSlicesPerPerson * numberOfPeople
+	var totalSlicesNeeded int
+	totalSlicesNeeded = slicesPerPerson * people
 
-	var totalNumberOfPizzasNeeded float64
-	totalNumberOfPizzasNeeded = math.Ceil(float64(totalNumberOfSlicesNeeded / numberOfSlicesPerPizza))
+	var totalPizzasNeeded float64
+	totalPizzasNeeded = math.Ceil(float64(totalSlicesNeeded) / float64(slicesPerPizza))
 
-	fmt.Print("You need to order ", totalNumberOfPizzasNeeded, " Pizzas\n")
+	fmt.Print("You need to order ", totalPizzasNeeded, " Pizzas\n")
 }
